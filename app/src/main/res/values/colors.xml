@@ -22,4 +22,9 @@
     <color name="orange_sun">#FFFD841F</color>
     <color name="yellow_soft">#FFFDFDBD</color>
     <color name="dark_red">#B71C1C</color>
+    <color name="deep_blue">#0013de </color>
+    <color name="track_color">#FFFFFF</color> <!-- Track arka plan rengi -->
+    <color name="thumb_color">#FF0000</color> <!-- Thumb rengi -->
+    <color name="track_stroke_color">#FF0000</color> <!-- Track kenarlık rengi -->
+
 </resources>

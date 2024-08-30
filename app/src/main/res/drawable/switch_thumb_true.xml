@@ -9,20 +9,16 @@
 
         <shape android:shape="oval">
             <solid android:color="#FFFFFF"/>
-            <size android:height="3dp"
-                android:width="3dp"/>
-            <stroke android:width="1sp"
-                android:color="#8e8e8e" />
+            <size android:height="24dp"
+                android:width="24dp"/> <!-- 3dp'den 24dp'ye çıkarıldı -->
+            <stroke android:width="1dp"
+                android:color="#8e8e8e"/>
         </shape>
     </item>
-
 
     <item android:drawable="@drawable/ic_baseline_correct_16"
         android:bottom="8dp"
         android:top="8dp"
         android:left="8dp"
-        android:right="8dp"
-        />
-
-
+        android:right="8dp"/>
 </layer-list>

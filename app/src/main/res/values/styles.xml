@@ -6,6 +6,7 @@
 
     <style name="AppTheme.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="itemBackground">@drawable/empty_selector</item>
+
     </style>
 
 

@@ -81,19 +81,36 @@ class DashboardFragment : Fragment() {
             val animatedColor = animator.animatedValue as Int
             binding.arkaplangecis.setBackgroundColor(animatedColor)
 
-            if (animatedColor == Color.WHITE) {
-                // Arka plan beyaza dönüyorsa yazıyı görünür hale getir
-                binding.welcomeTextView.visibility = View.VISIBLE
+            // Arka plana göre metin rengini değiştir
+            val textColor = if (animatedColor == Color.BLACK) Color.WHITE else Color.BLACK
+            binding.welcomeTextView.setTextColor(textColor)
 
-                // 5 saniye sonra yazıyı tekrar gizle
+            if (animatedColor == Color.WHITE) {
+                // Arka plan beyaza dönerken metni görünür yap ve yavaşça göster
+                binding.welcomeTextView.apply {
+                    text = "Işığa hoş geldin" // Mesajı ayarla
+                    visibility = View.VISIBLE
+                    animate().alpha(1f).duration = 1000 // Metni yavaşça görünür yap
+                }
+
+                // 5 saniye sonra metni yavaşça kaybet
                 Handler(Looper.getMainLooper()).postDelayed({
-                    binding.welcomeTextView.visibility = View.INVISIBLE
-                }, 5000) // 5 saniye sonra kaybolacak
+                    binding.welcomeTextView.animate().alpha(0f).duration = 1000
+                }, 5000)
+            } else {
+                // Ego switch'i açıkken siyah ekranda metni beyaz yap ve göster
+                binding.welcomeTextView.apply {
+                    text = "Ego'nun karanlığı içindesin"
+                    visibility = View.VISIBLE
+                    animate().alpha(1f).duration = 1000 // Metni yavaşça görünür yap
+                }
             }
         }
 
         colorAnimation.start()
     }
+
+
 }
 
 

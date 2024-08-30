@@ -9,8 +9,8 @@
 
         <shape android:shape="oval">
             <solid android:color="#FFFFFF"/>
-            <size android:height="3dp"
-                android:width="3dp"/>
+            <size android:height="24dp"
+                android:width="24dp"/> <!-- 3dp'den 24dp'ye çıkarıldı -->
         </shape>
     </item>
 
@@ -19,5 +19,4 @@
         android:top="8dp"
         android:left="8dp"
         android:right="8dp"/>
-
 </layer-list>
