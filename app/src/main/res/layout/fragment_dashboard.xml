@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/color_green"
             android:layout_marginTop="156dp">
 
             <!-- First Row -->
@@ -115,7 +114,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/color_green"
             android:layout_marginTop="32dp"
             android:gravity="center">
 

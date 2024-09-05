@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -35,4 +35,13 @@
         android:name="com.smtersoyoglu.kekodproject.ui.fragments.RespectFragment"
         android:label="fragment_respect"
         tools:layout="@layout/fragment_respect" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.smtersoyoglu.kekodproject.ui.splashscreen.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
 </navigation>
