@@ -16,11 +16,21 @@
         android:orientation="vertical"
         tools:context=".ui.fragments.DashboardFragment">
 
+        <app.rive.runtime.kotlin.RiveAnimationView
+            android:id="@+id/riveView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:riveResource="@raw/on_off_switch"
+            android:layout_gravity="center"
+            android:scaleX="1.2"
+            android:scaleY="1.2" />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="156dp">
+            android:layout_marginTop="50dp">
 
             <!-- First Row -->
             <LinearLayout
@@ -46,6 +56,7 @@
                     android:scaleY="1.5" />
 
                 <TextView
+                    android:id="@+id/happinessTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Happiness"
@@ -76,6 +87,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/optimismTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Optimism"
@@ -106,6 +118,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/kindnessTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kindness"
@@ -147,6 +160,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/givingTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Giving"
@@ -176,6 +190,7 @@
                     android:scaleY="1.5"/>
 
                 <TextView
+                    android:id="@+id/respectTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Respect"
@@ -205,6 +220,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/egoTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ego"

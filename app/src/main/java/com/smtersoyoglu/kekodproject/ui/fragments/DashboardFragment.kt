@@ -1,4 +1,5 @@
 package com.smtersoyoglu.kekodproject.ui.fragments
+
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -9,7 +10,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
@@ -30,6 +33,8 @@ class DashboardFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,6 +50,7 @@ class DashboardFragment : Fragment() {
         binding.egoSwitch.setOnCheckedChangeListener { _, isChecked ->
             viewModel.onEgoSwitchChanged(isChecked)
             animateBackgroundAndText(isChecked)
+            updateRiveAnimation(isChecked)
 
         }
 
@@ -70,8 +76,10 @@ class DashboardFragment : Fragment() {
 
     @SuppressLint("RestrictedApi")
     private fun animateBackgroundAndText(isEgoOn: Boolean) {
-        val fromColor = if (isEgoOn) Color.WHITE else Color.BLACK
-        val toColor = if (isEgoOn) Color.BLACK else Color.WHITE
+        // Renkleri XML'den al
+        // Fragment içinde
+        val fromColor = if (isEgoOn) ContextCompat.getColor(requireContext(), R.color.anim_color) else ContextCompat.getColor(requireContext(), R.color.black)
+        val toColor = if (isEgoOn) ContextCompat.getColor(requireContext(), R.color.black) else ContextCompat.getColor(requireContext(), R.color.anim_color)
 
         val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, toColor)
         colorAnimation.duration = 1000 // 1 saniyelik animasyon süresi
@@ -81,10 +89,17 @@ class DashboardFragment : Fragment() {
             binding.arkaplangecis.setBackgroundColor(animatedColor)
 
             // Arka plana göre metin rengini değiştir
-            val textColor = if (animatedColor == Color.BLACK) Color.WHITE else Color.BLACK
+            val textColor = if (animatedColor == ContextCompat.getColor(requireContext(), R.color.black)) ContextCompat.getColor(requireContext(), R.color.anim_color) else ContextCompat.getColor(requireContext(), R.color.black)
+            // Tüm TextView'lerin rengini güncelle
             binding.welcomeTextView.setTextColor(textColor)
+            binding.happinessTextView.setTextColor(textColor)
+            binding.optimismTextView.setTextColor(textColor)
+            binding.kindnessTextView.setTextColor(textColor)
+            binding.givingTextView.setTextColor(textColor)
+            binding.respectTextView.setTextColor(textColor)
+            binding.egoTextView.setTextColor(textColor)
 
-            if (animatedColor == Color.WHITE) {
+            if (animatedColor == ContextCompat.getColor(requireContext(), R.color.anim_color)) {
                 // Arka plan beyaza dönerken metni görünür yap ve yavaşça göster
                 binding.welcomeTextView.apply {
                     text = "Işığa hoş geldin" // Mesajı ayarla
@@ -109,6 +124,23 @@ class DashboardFragment : Fragment() {
         colorAnimation.start()
     }
 
+
+    private fun updateRiveAnimation(isEgoOn: Boolean) {
+        // Animasyonun Rive kaynağını ve State Machine'ini ayarlayın
+        binding.riveView.setRiveResource(
+            resId = R.raw.on_off_switch,
+            stateMachineName = "State Machine 1"
+        )
+
+        // Ego switch durumuna göre animasyonu güncelle
+        if (isEgoOn) {
+            // Ego açıkken animasyon "off" durumuna geçsin
+            binding.riveView.setBooleanState("State Machine 1", "On/Of", true)
+        } else {
+            // Ego kapalıyken animasyon "on" durumuna geçsin
+            binding.riveView.setBooleanState("State Machine 1", "On/Of", false)
+        }
+    }
 
 }
 

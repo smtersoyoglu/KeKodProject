@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         observeViewModel()
         setupBottomNavigation()
+
+
     }
 
     private fun setupNavigation() {

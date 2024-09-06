@@ -62,4 +62,6 @@ dependencies {
     // splash screen
     implementation ("com.airbnb.android:lottie:3.4.0")
 
+    implementation(libs.rive)
+    implementation(libs.startup)
 }
