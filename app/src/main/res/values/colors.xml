@@ -27,4 +27,11 @@
     <color name="thumb_color">#FF0000</color> <!-- Thumb rengi -->
     <color name="track_stroke_color">#FF0000</color> <!-- Track kenarlık rengi -->
 
+    <color name="trackColorEnabled">#4CAF50</color> <!-- Açıkken canlı yeşil -->
+    <color name="trackColorDisabled">#B0BEC5</color> <!-- Kapalıyken gri -->
+    <color name="thumbColorEnabled">#4CAF50</color> <!-- Açıkken canlı yeşil -->
+    <color name="thumbColorDisabled">#B0BEC5</color> <!-- Kapalıyken gri -->
+
+
+
 </resources>

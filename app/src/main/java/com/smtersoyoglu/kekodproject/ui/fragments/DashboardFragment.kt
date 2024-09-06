@@ -1,5 +1,4 @@
 package com.smtersoyoglu.kekodproject.ui.fragments
-
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -112,6 +111,4 @@ class DashboardFragment : Fragment() {
 
 
 }
-
-
 
