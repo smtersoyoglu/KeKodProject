@@ -64,6 +64,16 @@ class DashboardFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Mevcut Ego switch durumu üzerinden animasyonları güncelle
+        viewModel.isEgoSwitchChecked.value?.let { isEgoOn ->
+            updateRiveAnimation(isEgoOn)
+            updateLottieAnimation(isEgoOn)
+        }
+    }
+
+
     private fun observeSwitchState(switch: SwitchCompat, switchId: Int) {
         switch.setOnCheckedChangeListener(null) // Dinleyiciyi temizle
         viewModel.switchStates[switchId]?.observe(viewLifecycleOwner) { isChecked ->
@@ -158,5 +168,6 @@ class DashboardFragment : Fragment() {
         binding.lottieAnimationView.playAnimation()
 
     }
+
 }
 
