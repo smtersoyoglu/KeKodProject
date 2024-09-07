@@ -60,7 +60,7 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
 
     // splash screen
-    implementation ("com.airbnb.android:lottie:3.4.0")
+    implementation (libs.lottie)
 
     implementation(libs.rive)
     implementation(libs.startup)

@@ -230,6 +230,7 @@
 
         </LinearLayout>
 
+
         <TextView
             android:id="@+id/welcomeTextView"
             android:layout_width="wrap_content"
@@ -240,6 +241,17 @@
             android:visibility="invisible"
             android:layout_gravity="center"
             android:layout_marginTop="94dp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="true"
+            android:visibility="gone"
+            />
 
     </LinearLayout>
 </layout>

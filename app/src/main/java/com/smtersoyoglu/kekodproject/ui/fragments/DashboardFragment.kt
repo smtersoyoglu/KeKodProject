@@ -51,7 +51,7 @@ class DashboardFragment : Fragment() {
             viewModel.onEgoSwitchChanged(isChecked)
             animateBackgroundAndText(isChecked)
             updateRiveAnimation(isChecked)
-
+            updateLottieAnimation(isChecked)
         }
 
         // Diğer switch'lerin aktif/pasif durumunu gözlemle
@@ -142,5 +142,21 @@ class DashboardFragment : Fragment() {
         }
     }
 
+    private fun updateLottieAnimation(isEgoOn: Boolean) {
+
+        binding.lottieAnimationView.visibility = View.VISIBLE // Animasyonu göster
+
+        if (isEgoOn) {
+            // Ego switch açıkken 'Sad' animasyonunu oynat
+            binding.lottieAnimationView.setAnimation(R.raw.sad_anim)
+
+        }else {
+            // Ego switch kapalıyken 'Smile' animasyonunu oynat
+            binding.lottieAnimationView.setAnimation(R.raw.smile_anim)
+        }
+        // Animasyonu başlat
+        binding.lottieAnimationView.playAnimation()
+
+    }
 }
 
