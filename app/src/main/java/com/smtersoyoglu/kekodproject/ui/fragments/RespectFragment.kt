@@ -8,17 +8,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.smtersoyoglu.kekodproject.R
+import com.smtersoyoglu.kekodproject.databinding.FragmentRespectBinding
 
 
 class RespectFragment : Fragment() {
+
+    private var _binding: FragmentRespectBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_respect, container, false)
+        _binding = FragmentRespectBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,9 +31,14 @@ class RespectFragment : Fragment() {
         //val gifImageView: ImageView = view.findViewById(R.id.imageView)
         //gifImageView.load(R.drawable.respect_gif) // GIF dosyasının adı
 
-        val gifImageView: ImageView = view.findViewById(R.id.imageView)
         Glide.with(this)
             .load(R.drawable.respect_gif) // GIF dosyasının adı
-            .into(gifImageView)
+            .into(binding.imageView)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

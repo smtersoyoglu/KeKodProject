@@ -12,6 +12,7 @@ import com.smtersoyoglu.kekodproject.databinding.FragmentHappinessBinding
 import com.smtersoyoglu.kekodproject.databinding.FragmentOptimismBinding
 
 class HappinessFragment : Fragment() {
+
     private var _binding: FragmentHappinessBinding? = null
     private val binding get() = _binding!!
 

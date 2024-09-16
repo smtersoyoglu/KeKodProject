@@ -28,9 +28,14 @@ class OptimismFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val gifImageView: ImageView = view.findViewById(R.id.optimismImageView)
         Glide.with(this)
             .load(R.drawable.optimism_gif) // GIF dosyasının adı
-            .into(gifImageView)
+            .into(binding.optimismImageView)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // ViewBinding referansını temizle
+        _binding = null
     }
 }

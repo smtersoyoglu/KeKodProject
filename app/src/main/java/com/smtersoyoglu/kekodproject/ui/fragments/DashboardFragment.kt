@@ -168,6 +168,5 @@ class DashboardFragment : Fragment() {
         binding.lottieAnimationView.playAnimation()
 
     }
-
 }
 
